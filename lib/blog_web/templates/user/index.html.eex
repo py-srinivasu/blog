@@ -1,0 +1,37 @@
+<h2>Listing Auth users</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Mobile number</th>
+      <th>Is staf</th>
+      <th>Is active</th>
+      <th>Date joined</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user <- @auth_users do %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.mobile_number %></td>
+      <td><%= user.is_staf %></td>
+      <td><%= user.is_active %></td>
+      <td><%= user.date_joined %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: user_path(@conn, :show, user), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New User", to: user_path(@conn, :new) %></span>

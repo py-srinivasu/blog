@@ -1,0 +1,38 @@
+<h2>Show User</h2>
+
+<ul>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @user.first_name %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @user.last_name %>
+  </li>
+
+  <li>
+    <strong>Mobile number:</strong>
+    <%= @user.mobile_number %>
+  </li>
+
+  <li>
+    <strong>Is staf:</strong>
+    <%= @user.is_staf %>
+  </li>
+
+  <li>
+    <strong>Is active:</strong>
+    <%= @user.is_active %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: user_path(@conn, :edit, @user) %></span>
+<span><%= link "Back", to: user_path(@conn, :index) %></span>
